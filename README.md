@@ -1,24 +1,64 @@
-# README
+# サービス名
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Chatspace
 
-Things you may want to cover:
+# サービスの機能
 
-* Ruby version
+- 新規登録機能（ログアウトは割愛）
+- 1対1のチャット機能
+- 複数人によるグループチャット機能
+- チャット相手の検索機能
+- グループへの招待機能
+- チャットの履歴表示機能
+- 画像送信機能
+- チャットの自動更新（10秒に一回更新）
 
-* System dependencies
+# データベース設計
 
-* Configuration
+## messagesテーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|body|text|
+|image|string|
+|user_id|references :user|foreign_key: true|
+|group_id|references :group|foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :user
+- belongs_to :group
 
-* How to run the test suite
+## usersテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index :users,:name, unique: true|
+|email|string|null: false,add_index :users.:email, unique: true|
+|password|integer|null: false.add_index :users, :password|
 
-* Deployment instructions
+### Association
+- has_many :messages
+- has_many :user_groups
+- has_many :groups, through: :user_groups
 
-* ...
+##groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :messages
+- has_many :user_groups
+- has_many :users, through: :user_groups
+
+##user_groupテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|user_id|references :user|foreign_key: true|
+|group_id|references :group|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :group
