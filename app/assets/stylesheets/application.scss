@@ -1,3 +1,6 @@
+@import "mixin/clearfix";
 @import "./reset";
-@import "messages";
 @import "font-awesome";
+@import "modules/side-content";
+@import "modules/main-content";
+
