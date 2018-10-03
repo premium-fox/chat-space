@@ -1,0 +1,126 @@
+.main-content {
+  float: left;
+  position: relative;
+  width: calc(100vw - 300px);
+  height: 100vh;
+}
+
+.main-hedder {
+  height: 100px;
+  @include clearfix();
+  padding-right: 40px;
+  padding-left: 40px;
+  border-bottom: 1px solid #eeeeee;
+  &__left{
+  float: left;
+    h2 {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 50px;
+      color: #333333;
+    }
+    p {
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  &__right {
+    float: right;
+    input {
+      margin: 28px 0;
+      padding: 0 20px;
+      line-height: 40px;
+      color: #38AEF0;
+      font-size: 14px;
+      border: 2px solid #38AEF0;
+      background-color: #fff;
+    }
+  }
+}
+
+.main-body {
+  height: calc(100% - 190px);
+  width: calc(100vw - 300px);
+  padding: 0 40px 45px;
+  background-color: #fafafa;
+  box-sizing: border-box;
+
+  &__main-posts{
+  height: 100%;
+  overflow: scroll;
+  }
+}
+  .message {
+    padding-bottom: 40px;
+    &__message-hedder {
+      @include clearfix();
+      margin-top: 46px;
+      &__name {
+        float: left;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #434A54;
+      }
+      &__time {
+        float: left;
+        padding-top: 3px;
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999999
+      }
+    }
+    &__body {
+      font-size: 14px;
+      color: #434A54;
+    }
+  }
+
+
+.footer {
+  height: 90px;
+  width: calc(100vw - 300px);
+  padding: 20px 40px;
+  background-color: #ddd;
+  box-sizing: border-box;
+  .form {
+    height: 50px;
+    width: 100%;
+    &__message {
+      float: left;
+      position: relative;
+      width: calc(100% - 135px);
+      input {
+        width: 100%;
+        height: 50px;
+        padding: 0 10px;
+        line-height: 50px;
+        border: none;
+        resize: none;
+        font-size: 16px;
+        color: #434A54;
+      }
+    }
+      i {
+        position: absolute;
+        top: 0;
+        right: 0;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+      }
+    &__button {
+      float: right;
+      input {
+        width: 100px;
+        margin-left: 15px;
+        line-height: 50px;
+        color: #fff;
+        background-color: #38AEF0;
+        text-align: center;
+        border: none;
+        padding: 0;
+      }
+    }
+  }
+}
