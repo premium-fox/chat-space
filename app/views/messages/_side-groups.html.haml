@@ -1,19 +1,11 @@
 .side-groups
-  .side-group
-    .side-group__name
-      sampleグループ
-    .side-group__message
-      まだメッセージはありません。
-  .side-group
-    .side-group__name
-      sampleグループ
-    .side-group__message
-      まだメッセージはありません。
-  .side-group
-    .side-group__name
-      sampleグループ
-    .side-group__message
-      まだメッセージはありません。
+  - current_user.groups.each do |group|
+    .side-group
+      = link_to group_messages_path(group) do
+        .side-group__name
+          = group.name
+        .side-group__message
+          メッセージはありません。
 
 
 
